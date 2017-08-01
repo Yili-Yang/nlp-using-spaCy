@@ -175,9 +175,9 @@ class Train_spacy():
                             cus_list_.append(train_tuple)
                             check_pos_tuple_list.append(
                                 (train_tuple[0], train_tuple[1]))
-            for key,value in self.custom_exact_match.items():
+            for key,value in self.custom_exact_dict.items():
                 for job in record[key]:
-                    list_fuzz_buyers = self.find_company_name_fuzz(
+                    list_exact_jobs = self.find_company_name_fuzz(
                         sentence, buyer, 100, 100, self.nlp)
                     for pos_tuple in list_exact_jobs:
                         if pos_tuple[1] >= len(sentence):
@@ -239,9 +239,9 @@ class Train_spacy():
                                 cus_list_.append(train_tuple)
                                 check_pos_tuple_list.append(
                                     (train_tuple[0], train_tuple[1]))
-                for key,value in self.custom_exact_match.items():
+                for key,value in self.custom_exact_dict.items():
                     for job in record[key]:
-                        list_fuzz_buyers = self.find_company_name_fuzz(
+                        list_exact_jobs = self.find_company_name_fuzz(
                             sentence, buyer, 100, 100, self.nlp)
                         for pos_tuple in list_exact_jobs:
                             if pos_tuple[1] >= len(sentence):
@@ -518,7 +518,7 @@ class Train_spacy():
 
 
 # In[41]:
-if __name__ = 'main':
+if __name__ == 'main':
 	fuzz_dict = {'buyers': 'BUYERS', 'sellers': 'SELLERS'}
 
 
